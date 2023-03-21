@@ -34,6 +34,8 @@ const { Videogame } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
+Videogame.belongsToMany(Genres, {through: "VGame_Genres"});
+Genres.belongsToMany(Videogame, {through: "VGame_Genres"});
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
